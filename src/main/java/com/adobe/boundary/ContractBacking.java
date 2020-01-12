@@ -38,8 +38,10 @@ public class ContractBacking implements Serializable {
         this.contract = new Contract();
     }
 
-    public void update() {
+    public void update()  {
+
         contractManager.update(contracts);
+
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Update successful"));
     }
 

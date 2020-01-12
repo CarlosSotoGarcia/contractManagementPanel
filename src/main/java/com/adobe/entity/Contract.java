@@ -7,7 +7,8 @@ import javax.validation.constraints.NotEmpty;
 public class Contract {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @SequenceGenerator(name = "contract_seq", sequenceName = "contract_seq", allocationSize = 1)
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "contract_seq")
     private Long id;
 
     @Column(nullable = false)

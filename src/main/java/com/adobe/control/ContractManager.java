@@ -6,7 +6,6 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
-import java.util.UUID;
 
 @Stateless
 public class ContractManager {
@@ -42,4 +41,6 @@ public class ContractManager {
     public void update(List<Contract> customers) {
         customers.forEach(entityManager::merge);
     }
+
+
 }
