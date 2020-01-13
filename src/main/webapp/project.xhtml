@@ -31,6 +31,22 @@
                             <p:column headerText="Id">
                                 <h:outputText value="#{project.id}"/>
                             </p:column>
+
+                            <p:column headerText="Description">
+                                <h:outputText value="#{project.description}"/>
+                            </p:column>
+
+                            <p:column headerText="Create Date">
+                                <h:outputText value="#{project.createdDate}"/>
+                            </p:column>
+
+                            <p:column headerText="Is Closed">
+                                <h:outputText value="#{project.closed}"/>
+                            </p:column>
+
+                            <p:column headerText="Closed Date">
+                                <h:outputText value="#{project.closeDate}"/>
+                            </p:column>
                         </p:dataTable>
                     </p:fieldset>
 

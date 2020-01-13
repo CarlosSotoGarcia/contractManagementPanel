@@ -28,19 +28,4 @@
     </welcome-file-list>
 
 
-<!--    <data-source>-->
-<!--        <name>java:global/JPADatasourcePU</name>-->
-<!--        <class-name>org.postgresql.ds.PGSimpleDataSource</class-name>-->
-<!--        <server-name>localhost</server-name>-->
-<!--        <port-number>5432</port-number>-->
-<!--        <database-name>contract</database-name>-->
-<!--        <user>postgres</user>-->
-<!--        <password>rootmaster</password>-->
-<!--        <property>-->
-<!--            <name>fish.payara.is-connection-validation-required</name>-->
-<!--            <value>true</value>-->
-<!--        </property>-->
-
-<!--    </data-source>-->
-
 </web-app>
