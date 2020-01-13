@@ -31,6 +31,12 @@ public class Client {
     @Column(nullable = false)
     private String clientBillingCountry;
 
+    @Column(nullable = false)
+    private String wnueve;
+
+    @Column(nullable = false)
+    private String taxCertificate;
+
     @OneToMany(mappedBy = "client")
     private List<Project> projects;
 
@@ -101,5 +107,21 @@ public class Client {
 
     public void setClientBillingCountry(String clientBillingCountry) {
         this.clientBillingCountry = clientBillingCountry;
+    }
+
+    public String getWnueve() {
+        return wnueve;
+    }
+
+    public void setWnueve(String wnueve) {
+        this.wnueve = wnueve;
+    }
+
+    public String getTaxCertificate() {
+        return taxCertificate;
+    }
+
+    public void setTaxCertificate(String taxCertificate) {
+        this.taxCertificate = taxCertificate;
     }
 }

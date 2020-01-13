@@ -51,6 +51,14 @@
                                 <p:inputText id="clientBillingStreet" value="#{clientAddBacking.client.clientBillingStreet}" required="true"/>
                                 <p:message for="clientBillingStreet"/>
 
+                                <p:outputLabel for="wnueve" value="W 9"/>
+                                <p:inputText id="wnueve" value="#{clientAddBacking.client.wnueve}" required="true"/>
+                                <p:message for="wnueve"/>
+
+                                <p:outputLabel for="taxtCertificate" value="Taxt Certificate"/>
+                                <p:inputText id="taxtCertificate" value="#{clientAddBacking.client.taxCertificate}" required="true"/>
+                                <p:message for="taxtCertificate"/>
+
                                 <p:outputLabel for="contractId" value="Contract ID"/>
                                 <p:inputText id="contractId" value="#{clientAddBacking.contractId}" required="true"/>
                                 <p:message for="contractId"/>
