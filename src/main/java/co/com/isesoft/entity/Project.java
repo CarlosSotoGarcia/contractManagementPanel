@@ -28,6 +28,15 @@ public class Project {
     @Column(nullable = false)
     private Boolean isClosed;
 
+    @Column(nullable = true)
+    private String contractId;
+
+    @Column(nullable = true)
+    private String poNumber;
+
+    @Column(nullable = true)
+    private String woNumber;
+
     public String getId() {
         return id;
     }
@@ -74,5 +83,29 @@ public class Project {
 
     public void setClosed(Boolean closed) {
         isClosed = closed;
+    }
+
+    public String getContractId() {
+        return contractId;
+    }
+
+    public void setContractId(String contractId) {
+        this.contractId = contractId;
+    }
+
+    public String getPoNumber() {
+        return poNumber;
+    }
+
+    public void setPoNumber(String poNumber) {
+        this.poNumber = poNumber;
+    }
+
+    public String getWoNumber() {
+        return woNumber;
+    }
+
+    public void setWoNumber(String woNumber) {
+        this.woNumber = woNumber;
     }
 }

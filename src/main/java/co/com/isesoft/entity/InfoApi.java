@@ -5,7 +5,9 @@ import javax.persistence.*;
 @Entity
 @NamedQueries({
         @NamedQuery(name = "InfoApi.findById", query = "SELECT i FROM InfoApi i WHERE i.id = :id "),
-        @NamedQuery(name = "InfoApi.findAll", query = "SELECT i FROM InfoApi i ")
+        @NamedQuery(name = "InfoApi.findAll", query = "SELECT i FROM InfoApi i  "),
+        @NamedQuery(name = "InfoApi.findByValidate", query = "SELECT i FROM InfoApi i WHERE i.validate = :validate  "),
+        @NamedQuery(name = "InfoApi.findByClientNameAndValidate", query = "SELECT i FROM InfoApi i WHERE i.clientName = :clientName and i.validate = :validate  ")
 })
 public class InfoApi {
 
@@ -44,6 +46,9 @@ public class InfoApi {
 
     @Column(nullable = false)
     private Boolean existClient;
+
+    @Column(nullable = false)
+    private Boolean validate;
 
     public String getId() {
         return id;
@@ -139,5 +144,13 @@ public class InfoApi {
 
     public void setClientBillingCountry(String clientBillingCountry) {
         this.clientBillingCountry = clientBillingCountry;
+    }
+
+    public Boolean getValidate() {
+        return validate;
+    }
+
+    public void setValidate(Boolean validate) {
+        this.validate = validate;
     }
 }

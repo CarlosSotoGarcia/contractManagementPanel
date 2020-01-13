@@ -22,33 +22,35 @@
                         </f:facet>
 
                         <p:dataTable id="infoList" var="infoApi" value="#{panelBacking.infoApis}"
-                                     rows="10"
+                                     rows="50"
                                      paginator="true"
                                      paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                     rowsPerPageTemplate="5,10,15">
+                                     rowsPerPageTemplate="50,100,150"
+                                    emptyMessage="No records found"
+                                     filteredValue="#{panelBacking.filteredInfoApis}">
 
                             <p:column headerText="Id">
                                 <h:outputText value="#{infoApi.id}"/>
                             </p:column>
 
-                            <p:column headerText="Description">
+                            <p:column headerText="Description" filterBy="#{infoApi.description}" footerText="contains" filterMatchMode="contains">
                                 <h:outputText value="#{infoApi.description}"/>
                             </p:column>
 
-                            <p:column headerText="Client Name">
+                            <p:column headerText="Client Name" filterBy="#{infoApi.clientName}" footerText="contains" filterMatchMode="contains">
                                 <h:outputText value="#{infoApi.clientName}"/>
                             </p:column>
 
-                            <p:column headerText="Client Status">
+                            <p:column headerText="Client Status" >
                                 <h:outputText value="Existing" rendered="#{infoApi.existClient}"/>
                                 <h:outputText value="New" rendered="#{!infoApi.existClient}"/>
                             </p:column>
 
                             <p:column headerText="Actions">
-                                <p:button outcome="project" icon="fa fa-binoculars">
-                                    <f:param name="idItem" value="#{infoApi.id}"/>
-                                </p:button>
-                                <p:button id="botonAdd" outcome="clientAdd" icon="fa fa-plus-square" >
+<!--                                <p:button outcome="project" icon="fa fa-binoculars">-->
+<!--                                    <f:param name="idItem" value="#{infoApi.id}"/>-->
+<!--                                </p:button>-->
+                                <p:button id="botonAdd" outcome="clientAdd" icon="fa fa-plus-square" rendered="#{!infoApi.existClient}">
                                     <f:param name="idInfoApi" value="#{infoApi.id}"/>
                                 </p:button>
                                 <p:tooltip id="toolbotonAdd" for="botonAdd" value="Complete Info" position="top"/>
@@ -57,7 +59,7 @@
                         </p:dataTable>
                         <br/>
                         <p:commandButton style="float: right" id="loadCli" value="Load Info Api" tyleClass="ui-priority-primary"
-                                         action="#{panelBacking.loadInfoApi}" icon="ui-icon-disk" update="growl">
+                                         action="#{panelBacking.loadInfoApi}" icon="ui-icon-disk" update="growl infoList" >
                             <f:ajax execute="@form" render="@form"/>
                         </p:commandButton>
                     </p:fieldset>

@@ -20,11 +20,14 @@ public class PanelBacking implements Serializable {
 
     private List<InfoApi> infoApis;
 
+    private List<InfoApi> filteredInfoApis;
+
     @PostConstruct
-    public void init() {this.infoApis = infoApiManagement.loadAll();}
+    public void init() {this.infoApis = infoApiManagement.findByValidate(Boolean.FALSE);}
 
     public void loadInfoApi() {
         infoApiManagement.loadClientsApi();
+        this.infoApis = infoApiManagement.findByValidate(Boolean.FALSE);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Update successful"));
     }
 
@@ -42,5 +45,13 @@ public class PanelBacking implements Serializable {
 
     public void setInfoApis(List<InfoApi> infoApis) {
         this.infoApis = infoApis;
+    }
+
+    public List<InfoApi> getFilteredInfoApis() {
+        return filteredInfoApis;
+    }
+
+    public void setFilteredInfoApis(List<InfoApi> filteredInfoApis) {
+        this.filteredInfoApis = filteredInfoApis;
     }
 }

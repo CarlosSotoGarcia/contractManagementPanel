@@ -48,6 +48,17 @@ public class InfoApiManagement {
         }
     }
 
+    public List<InfoApi> findByValidate(Boolean validate) {
+        TypedQuery<InfoApi> query = entityManager.createNamedQuery("InfoApi.findByValidate", InfoApi.class);
+
+        query.setParameter("validate", validate);
+        try {
+            return query.getResultList();
+        } catch (Exception e) {
+            return new ArrayList<>();
+        }
+    }
+
     public void loadClientsApi() {
         List<InfoDTO> clientDTOS = new ArrayList<>();
         String output = null;
@@ -107,5 +118,30 @@ public class InfoApiManagement {
         }
     }
 
+    public InfoApi save(InfoApi infoApi) {
+        return entityManager.merge(infoApi);
+    }
+
+    public void reValidateByClientName(String clientName) {
+        List<InfoApi> infoApis = findByClientNameAndValidate(clientName, Boolean.FALSE);
+
+        for (InfoApi infoApi : infoApis) {
+            infoApi.setExistClient(Boolean.TRUE);
+            infoApi = entityManager.merge(infoApi);
+        }
+    }
+
+    public List<InfoApi> findByClientNameAndValidate(String clientName, Boolean validate) {
+        TypedQuery<InfoApi> query = entityManager.createNamedQuery("InfoApi.findByClientNameAndValidate", InfoApi.class);
+
+        query.setParameter("clientName", clientName);
+        query.setParameter("validate", validate);
+
+        try {
+            return query.getResultList();
+        } catch (Exception e) {
+            return null;
+        }
+    }
 
 }

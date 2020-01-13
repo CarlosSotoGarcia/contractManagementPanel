@@ -17,6 +17,7 @@ public class InfoDTO implements Serializable {
     private String description;
     private String id;
     private Boolean isClosed;
+    private Boolean validate;
 
     public InfoApi toInfoApi() {
         InfoApi infoApi = new InfoApi();
@@ -31,6 +32,7 @@ public class InfoDTO implements Serializable {
         infoApi.setClientBillingStreet(clientBillingStreet);
         infoApi.setClientName(clientName);
         infoApi.setExistClient(Boolean.FALSE);
+        infoApi.setValidate(Boolean.FALSE);
         return infoApi;
     }
 
@@ -159,5 +161,13 @@ public class InfoDTO implements Serializable {
 
     public void setClientBillingCountry(String clientBillingCountry) {
         this.clientBillingCountry = clientBillingCountry;
+    }
+
+    public Boolean getValidate() {
+        return validate;
+    }
+
+    public void setValidate(Boolean validate) {
+        this.validate = validate;
     }
 }

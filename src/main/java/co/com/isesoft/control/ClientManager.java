@@ -31,8 +31,8 @@ public class ClientManager {
         return this.entityManager.createQuery("SELECT c FROM Client c", Client.class).getResultList();
     }
 
-    public void save(Client client) {
-        this.entityManager.persist(client);
+    public Client save(Client client) {
+        return this.entityManager.merge(client);
     }
 
     public Client findById(Long id) {

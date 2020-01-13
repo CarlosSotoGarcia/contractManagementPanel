@@ -20,6 +20,8 @@
                     </div>
                     <div class="ui-g-8">
                         <h:form id="panelForm">
+                            <p:growl id="growl" sticky="true" />
+
                             <h:panelGrid columns="3" cellpadding="5" style="margin: 0 auto;">
                                 <p:outputLabel for="clientId" value="Client ID"/>
                                 <p:inputText id="clientId" value="#{clientAddBacking.client.id}" required="true"/>
@@ -49,7 +51,22 @@
                                 <p:inputText id="clientBillingStreet" value="#{clientAddBacking.client.clientBillingStreet}" required="true"/>
                                 <p:message for="clientBillingStreet"/>
 
+                                <p:outputLabel for="contractId" value="Contract ID"/>
+                                <p:inputText id="contractId" value="#{clientAddBacking.contractId}" required="true"/>
+                                <p:message for="contractId"/>
+
+                                <p:outputLabel for="poNumber" value="PO Number"/>
+                                <p:inputText id="poNumber" value="#{clientAddBacking.poNumber}" required="true"/>
+                                <p:message for="poNumber"/>
+
+                                <p:outputLabel for="woNumber" value="WO Number"/>
+                                <p:inputText id="woNumber" value="#{clientAddBacking.wONumber}" required="true"/>
+                                <p:message for="woNumber"/>
+
                                 <p:commandButton value="Add New Client" action="#{clientAddBacking.add}">
+                                </p:commandButton>
+
+                                <p:commandButton value="Return" action="#{clientAddBacking.backToList}">
                                 </p:commandButton>
 
                             </h:panelGrid>
