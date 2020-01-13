@@ -86,16 +86,16 @@ public class InfoApiManagement {
                 JSONObject json = (JSONObject) jsonArray.get(i);
                 InfoDTO dto = new InfoDTO();
                 dto.setClientBillingCity(json.has("ClientBillingCity") ? json.getString("ClientBillingCity") : "");
-                dto.setClientBillingPostalCode(json.has("ClientBillingPostalCode") ? json.getString("ClientBillingPostalCode") : null);
-                dto.setClientBillingState(json.has("ClientBillingState") ? json.getString("ClientBillingState") : null);
-                dto.setClientBillingCountry(json.has("ClientBillingCountry") ? json.getString("ClientBillingCountry") : null);
-                dto.setClientBillingStreet(json.has("ClientBillingStreet") ? json.getString("ClientBillingStreet") : null);
-                dto.setClientName(json.has("ClientName") ? json.getString("ClientName") : null);
-                dto.setCloseDate(json.has("CreatedDate") ? json.getString("CloseDate") : null);
-                dto.setCreatedDate(json.has("CreatedDate") ? json.getString("CreatedDate") : null);
-                dto.setDescription(json.has("Description") ? json.getString("Description") : null);
-                dto.setId(json.has("Id") ? json.getString("Id") : null);
-                dto.setClosed(json.has("IsClosed") ? json.getBoolean("IsClosed") : null);
+                dto.setClientBillingPostalCode(json.has("ClientBillingPostalCode") ? json.getString("ClientBillingPostalCode") : "");
+                dto.setClientBillingState(json.has("ClientBillingState") ? json.getString("ClientBillingState") : "");
+                dto.setClientBillingCountry(json.has("ClientBillingCountry") ? json.getString("ClientBillingCountry") : "");
+                dto.setClientBillingStreet(json.has("ClientBillingStreet") ? json.getString("ClientBillingStreet") : "");
+                dto.setClientName(json.has("ClientName") ? json.getString("ClientName") : "");
+                dto.setCloseDate(json.has("CreatedDate") ? json.getString("CloseDate") : "");
+                dto.setCreatedDate(json.has("CreatedDate") ? json.getString("CreatedDate") : "");
+                dto.setDescription(json.has("Description") ? json.getString("Description") : "");
+                dto.setId(json.has("Id") ? json.getString("Id") : "");
+                dto.setClosed(json.has("IsClosed") ? json.getBoolean("IsClosed") : false);
                 clientDTOS.add(dto);
             }
             saveListDTO(clientDTOS);

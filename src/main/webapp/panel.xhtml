@@ -50,10 +50,17 @@
 <!--                                <p:button outcome="project" icon="fa fa-binoculars">-->
 <!--                                    <f:param name="idItem" value="#{infoApi.id}"/>-->
 <!--                                </p:button>-->
-                                <p:button id="botonAdd" outcome="clientAdd" icon="fa fa-plus-square" rendered="#{!infoApi.existClient}">
+                                <p:button id="buttonAdd" outcome="clientAdd" icon="fa fa-plus-square" rendered="#{!infoApi.existClient}">
                                     <f:param name="idInfoApi" value="#{infoApi.id}"/>
+                                    <f:param name="action" value="add"/>
                                 </p:button>
-                                <p:tooltip id="toolbotonAdd" for="botonAdd" value="Complete Info" position="top"/>
+                                <p:tooltip id="buttonAddTool" for="buttonAdd" value="Complete Info" position="top"/>
+
+                                <p:button id="buttonValidate" outcome="clientAdd" icon="fa-check-square-o" rendered="#{infoApi.existClient}">
+                                    <f:param name="idInfoApi" value="#{infoApi.id}"/>
+                                    <f:param name="action" value="validate"/>
+                                </p:button>
+                                <p:tooltip id="toolbotonValidate" for="buttonValidate" value="Validate Info" position="top"/>
                             </p:column>
 
                         </p:dataTable>

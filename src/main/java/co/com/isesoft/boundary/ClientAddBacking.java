@@ -39,6 +39,7 @@ public class ClientAddBacking implements Serializable {
     private String poNumber;
     private String wONumber;
 
+    private String action;
 
     @PostConstruct
     public void init() {
@@ -51,19 +52,27 @@ public class ClientAddBacking implements Serializable {
         if ( request.getParameterMap().containsKey("idInfoApi")) {
             idInfoApi = String.valueOf(request.getParameter("idInfoApi"));
             infoApi = infoApiManagement.findById(idInfoApi);
-            client.setClientBillingCity(infoApi.getClientBillingCity());
-            client.setClientBillingPostalCode(infoApi.getClientBillingPostalCode());
-            client.setClientBillingState(infoApi.getClientBillingState());
-            client.setClientBillingStreet(infoApi.getClientBillingStreet());
-            client.setClientName(infoApi.getClientName());
-            client.setClientBillingCountry(infoApi.getClientBillingCountry());
+            if ( request.getParameterMap().containsKey("action")) {
+                action = String.valueOf(request.getParameter("action"));
+                if (action != null && action.equals("validate") ) {
+                    client = clientManager.findByName(infoApi.getClientName());
+
+                } else if (action != null && action.equals("add")) {
+                    client.setClientBillingCity(infoApi.getClientBillingCity());
+                    client.setClientBillingPostalCode(infoApi.getClientBillingPostalCode());
+                    client.setClientBillingState(infoApi.getClientBillingState());
+                    client.setClientBillingStreet(infoApi.getClientBillingStreet());
+                    client.setClientName(infoApi.getClientName());
+                    client.setClientBillingCountry(infoApi.getClientBillingCountry());
+                }
+            }
+
         }
     }
 
-
-
     public void add() {
-        client = this.clientManager.save(this.client);
+        if (action != null && action.equals("add"))
+            client = this.clientManager.save(this.client);
 
         project = new Project();
         project.setId(infoApi.getId());
@@ -81,7 +90,8 @@ public class ClientAddBacking implements Serializable {
         infoApi.setValidate(Boolean.TRUE);
         infoApiManagement.save(infoApi);
 
-        infoApiManagement.reValidateByClientName(client.getClientName());
+        if (action != null && action.equals("add"))
+            infoApiManagement.reValidateByClientName(client.getClientName());
 
         FacesContext context = FacesContext.getCurrentInstance();
         context.getApplication().getNavigationHandler().handleNavigation(context, null, "panel");
