@@ -1,6 +1,6 @@
-package com.adobe.control;
+package co.com.isesoft.control;
 
-import com.adobe.entity.Customer;
+import co.com.isesoft.entity.Customer;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;

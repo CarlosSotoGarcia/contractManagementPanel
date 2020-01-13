@@ -1,7 +1,7 @@
-package com.adobe.boundary;
+package co.com.isesoft.boundary;
 
-import com.adobe.control.ClientManager;
-import com.adobe.entity.Client;
+import co.com.isesoft.control.ClientManager;
+import co.com.isesoft.entity.Client;
 
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;

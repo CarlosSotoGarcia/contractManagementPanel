@@ -1,12 +1,14 @@
-package com.adobe.control;
+package co.com.isesoft.control;
 
-import com.adobe.entity.Client;
-import com.adobe.entity.Project;
+import co.com.isesoft.entity.Client;
+import co.com.isesoft.entity.Project;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import java.util.ArrayList;
+import java.util.List;
 
 @Stateless
 public class ProjectManager {
@@ -23,6 +25,17 @@ public class ProjectManager {
             return query.getSingleResult();
         } catch (Exception e) {
             return null;
+        }
+    }
+
+    public List<Project> findByClient(Client client) {
+        TypedQuery<Project> query = this.entityManager.createNamedQuery("Project.findByClient", Project.class);
+        query.setParameter("idClient", client.getId());
+
+        try {
+            return query.getResultList();
+        } catch (Exception e) {
+            return new ArrayList<>();
         }
     }
 

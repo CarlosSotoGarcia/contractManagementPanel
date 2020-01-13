@@ -2,26 +2,12 @@
 <persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
-    <persistence-unit name="JPADatasourcePU" transaction-type="JTA">
-        <properties>
-            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
-        </properties>
-
-        <!--jta-data-source>java:global/JPADatasourcePU</jta-data-source>
+    <persistence-unit name="myPU" transaction-type="JTA">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <jta-data-source>jdbc/_postgres</jta-data-source>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
-            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+            <property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
         </properties>
-
-        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-        <class>com.adobe.entity.Client</class>
-        <class>com.adobe.entity.Contract</class>
-        <class>com.adobe.entity.Customer</class>
-        <properties>
-            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/contract" />
-            <property name="javax.persistence.jdbc.user" value="postgres" />
-            <property name="javax.persistence.jdbc.password" value="rootmaster" />
-        </properties-->
     </persistence-unit>
 </persistence>

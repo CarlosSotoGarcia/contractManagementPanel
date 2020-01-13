@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jstl="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    <body>
+        <ui:composition>
+            <h:form id="form">
+
+                <p:growl id="growl" showDetail="true" life="3000" />
+
+
+<!--                <p:dashboard id="board" model="#{menuMB.modelo}">  -->
+<!--                    -->
+<!--                    <jstl:forEach items="#{menuMB.menu.seguridad}"-->
+<!--                               var="ms"-->
+<!--                               rendered="#{not empty menuMB.menu.seguridad}">-->
+<!--                        <p:panel id="id_#{ms.id}" header="#{ms.nombre}">-->
+<!--                            <h:outputLink value="#{request.contextPath}#{ms.url}">-->
+<!--                                <p:graphicImage value="/img/#{ms.imagen}" height="80" width="160"  />-->
+<!--                            </h:outputLink>-->
+<!--                        </p:panel>-->
+<!--                    </jstl:forEach>-->
+<!--                    <jstl:forEach items="#{menuMB.menu.seleccion}"-->
+<!--                                  var="mse" rendered="#{not empty menuMB.menu.catalogos}" >-->
+<!--                        <p:panel id="id_#{mse.id}" header="#{mse.nombre}">-->
+<!--                            <h:outputLink value="#{request.contextPath}#{mse.url}">-->
+<!--                                <p:graphicImage value="/img/#{mse.imagen}" height="80" width="160"  />-->
+<!--                            </h:outputLink>-->
+<!--                        </p:panel>-->
+<!--                    </jstl:forEach>-->
+<!--                    <jstl:forEach items="#{menuMB.menu.configuracion}"-->
+<!--                                  var="mc" rendered="#{not empty menuMB.menu.configuracion}" >-->
+<!--                        <p:panel id="id_#{mc.id}" header="#{mc.nombre}">-->
+<!--                            <h:outputLink value="#{request.contextPath}#{mc.url}">-->
+<!--                                <p:graphicImage value="/img/#{mc.imagen}" height="80" width="160"  />-->
+<!--                            </h:outputLink>-->
+<!--                        </p:panel>-->
+<!--                    </jstl:forEach>-->
+<!--                    -->
+<!--                    <jstl:forEach items="#{menuMB.menu.catalogos}"-->
+<!--                                  var="mca" rendered="#{not empty menuMB.menu.catalogos}" >-->
+<!--                        <p:panel id="id_#{mca.id}" header="#{mca.nombre}">-->
+<!--                            <h:outputLink value="#{request.contextPath}#{mca.url}">-->
+<!--                                <p:graphicImage value="/img/#{mca.imagen}" height="80" width="160"  />-->
+<!--                            </h:outputLink>-->
+<!--                        </p:panel>-->
+<!--                    </jstl:forEach>-->
+<!--                    -->
+<!--                    -->
+<!--                </p:dashboard>  -->
+                <script type="text/javascript">
+                    function redireccionaMenu(pagina) {
+                        alert(pagina);
+                        window.location.href = pagina;
+                    }
+                </script>
+                
+                </h:form>
+        </ui:composition>
+    </body>
+</html>

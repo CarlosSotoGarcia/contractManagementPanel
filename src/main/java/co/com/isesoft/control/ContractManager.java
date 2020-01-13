@@ -1,6 +1,6 @@
-package com.adobe.control;
+package co.com.isesoft.control;
 
-import com.adobe.entity.Contract;
+import co.com.isesoft.entity.Contract;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

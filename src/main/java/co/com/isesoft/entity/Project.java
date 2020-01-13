@@ -1,10 +1,11 @@
-package com.adobe.entity;
+package co.com.isesoft.entity;
 
 import javax.persistence.*;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "Project.findByClientAndDescription", query = "SELECT c FROM Project c WHERE c.client.id = :idClient and c.description = :description ")
+        @NamedQuery(name = "Project.findByClientAndDescription", query = "SELECT c FROM Project c WHERE c.client.id = :idClient and c.description = :description "),
+        @NamedQuery(name = "Project.findByClient", query = "SELECT c FROM Project c WHERE c.client.id = :idClient  ")
 })
 public class Project {
 

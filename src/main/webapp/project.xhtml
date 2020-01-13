@@ -8,21 +8,37 @@
       xmlns:p="http://primefaces.org/ui">>
 <f:view>
     <h:head>
-        <h:outputStylesheet name="webjars/font-awesome/5.12.0/css/fontawesome-jsf.css"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </h:head>
 
     <h:body>
-        <p:outputPanel>
-        <h3>Client Managment</h3>
-            <div class="ui-g">
-                <div class="ui-g-2"/>
-                <div class="ui-g-8">
-                    <h:form id="contracts">
-                        <p:growl id="growl" sticky="true"  />
-                    </h:form>
-                </div>
-            </div>
-        </p:outputPanel>
+        <ui:composition template="/templates/maestro/layout-maestro.xhtml">
+        <ui:define name="titulo">Projects</ui:define>
+            <ui:define name="contenido">
+                <h:form id="contracts">
+                    <p:growl id="growl" sticky="true" />
+                    <p:fieldset>
+                        <f:facet name="header">
+                            <p:outputLabel value="Project"/>
+                        </f:facet>
+
+                        <p:dataTable id="projectList" var="project" value="#{projectBacking.projects}"
+                                     rows="10"
+                                     paginator="true"
+                                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                     rowsPerPageTemplate="5,10,15">
+
+                            <p:column headerText="Id">
+                                <h:outputText value="#{project.id}"/>
+                            </p:column>
+                        </p:dataTable>
+                    </p:fieldset>
+
+
+                </h:form>
+
+            </ui:define>
+        </ui:composition>
     </h:body>
 
 </f:view>

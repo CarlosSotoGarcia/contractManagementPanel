@@ -1,7 +1,7 @@
-package com.adobe.boundary;
+package co.com.isesoft.boundary;
 
-import com.adobe.control.ContractManager;
-import com.adobe.entity.Contract;
+import co.com.isesoft.control.ContractManager;
+import co.com.isesoft.entity.Contract;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;

@@ -1,7 +1,6 @@
-package com.adobe.entity;
+package co.com.isesoft.entity;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
 public class InfoDTO implements Serializable {
 

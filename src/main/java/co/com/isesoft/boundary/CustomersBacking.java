@@ -1,7 +1,7 @@
-package com.adobe.boundary;
+package co.com.isesoft.boundary;
 
-import com.adobe.control.CustomerManager;
-import com.adobe.entity.Customer;
+import co.com.isesoft.control.CustomerManager;
+import co.com.isesoft.entity.Customer;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;

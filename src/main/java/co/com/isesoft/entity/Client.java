@@ -1,11 +1,12 @@
-package com.adobe.entity;
+package co.com.isesoft.entity;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "Client.findByName", query = "SELECT c FROM Client c WHERE c.clientName = :name ")
+        @NamedQuery(name = "Client.findByName", query = "SELECT c FROM Client c WHERE c.clientName = :name "),
+        @NamedQuery(name = "Client.findById", query = "SELECT c FROM Client c WHERE c.id = :id ")
 })
 public class Client {
 

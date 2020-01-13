@@ -1,4 +1,4 @@
-package com.adobe.entity;
+package co.com.isesoft.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;

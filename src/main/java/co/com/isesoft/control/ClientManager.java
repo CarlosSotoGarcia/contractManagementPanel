@@ -1,8 +1,8 @@
-package com.adobe.control;
+package co.com.isesoft.control;
 
-import com.adobe.entity.Client;
-import com.adobe.entity.InfoDTO;
-import com.adobe.entity.Project;
+import co.com.isesoft.entity.Client;
+import co.com.isesoft.entity.InfoDTO;
+import co.com.isesoft.entity.Project;
 import org.primefaces.json.JSONArray;
 import org.primefaces.json.JSONObject;
 
@@ -31,6 +31,17 @@ public class ClientManager {
         return this.entityManager.createQuery("SELECT c FROM Client c", Client.class).getResultList();
     }
 
+    public Client findById(Long id) {
+        TypedQuery<Client> query = entityManager.createNamedQuery("Client.findById", Client.class);
+
+        query.setParameter("id", id);
+
+        try {
+            return query.getSingleResult();
+        } catch (Exception e) {
+            return  null;
+        }
+    }
 
     public Client findByName(String name) {
         TypedQuery<Client> query = this.entityManager.createNamedQuery("Client.findByName", Client.class);

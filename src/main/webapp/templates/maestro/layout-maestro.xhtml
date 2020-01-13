@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jstl="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions">
+    <h:head>
+<!--        <link type="text/css" rel="stylesheet" href="#{request.contextPath}/scb-theme/skin.css" />-->
+        <link rel="shortcut icon" href="#{request.contextPath}/img/favicon.ico" type="image/x-icon"/> 
+        <title>Resource Panel TDS - <ui:insert name="titulo"></ui:insert></title>
+    </h:head>
+
+    <h:body>
+
+		<ui:insert name="encabezado">
+<!--        	<ui:include src="/web-pages/templates/maestro/maneja-error-ajax.xhtml" />-->
+        </ui:insert>
+        <div id="divPrincipal" class="divPrincipal">
+            <div id="encabezado" class="encabezado">
+                <ui:insert name="encabezado">
+                    <ui:include src="/templates/maestro/encabezado.xhtml" />
+                </ui:insert>
+            </div>
+            <h:form id="formaPrincipalBarraMenu">
+
+<!--                <p:menubar id="menuBar" style="width:100%;" autoDisplay="false">-->
+<!--                    <p:submenu id="menuSeguridad"-->
+<!--                               label="#{msg['menu.seguridad.titulo']}"-->
+<!--                               icon="ui-icon-folder-open"-->
+<!--                               rendered="#{not empty menuMB.menu.seguridad}">-->
+<!--                        <jstl:forEach items="#{menuMB.menu.seguridad}"-->
+<!--                                   var="ms">-->
+<!--                            <p:menuitem value="#{ms.nombre}"-->
+<!--                                        url="#{ms.url}"/>-->
+<!--                        </jstl:forEach>-->
+<!--                    </p:submenu>-->
+<!--                    -->
+<!--                    <p:submenu id="menuSeleccion"-->
+<!--                               label="Operacion"-->
+<!--                               icon="ui-icon-folder-open"-->
+<!--                               rendered="#{not empty menuMB.menu.seleccion}">-->
+<!--                        <jstl:forEach items="#{menuMB.menu.seleccion}"-->
+<!--                                      var="ms">-->
+<!--                            <p:menuitem value="#{ms.nombre}"-->
+<!--                                        url="#{ms.url}" />-->
+<!--                        </jstl:forEach>-->
+<!--                        -->
+<!--                    </p:submenu>-->
+<!--                    -->
+<!--                    <p:submenu id="menuConfiguracion"-->
+<!--                               label="#{msg['menu.configuracion.titulo']}"-->
+<!--                               icon="ui-icon-folder-open"-->
+<!--                               rendered="#{not empty menuMB.menu.configuracion}">-->
+<!--                        <jstl:forEach items="#{menuMB.menu.configuracion}"-->
+<!--                                      var="mc">-->
+<!--                            <p:menuitem value="#{mc.nombre}"-->
+<!--                                        url="#{mc.url}" />-->
+<!--                        </jstl:forEach>-->
+<!--                        -->
+<!--                    </p:submenu>-->
+<!--                    -->
+<!--                    <p:submenu id="menuCatalogo"-->
+<!--                               label="#{msg['menu.catalogos.titulo']}"-->
+<!--                               icon="ui-icon-folder-open"-->
+<!--                               rendered="#{not empty menuMB.menu.catalogos}">-->
+<!--                        -->
+<!--                        <jstl:forEach items="#{menuMB.menu.catalogos}"-->
+<!--                                      var="mca" >-->
+<!--                            <p:menuitem value="#{mca.nombre}"-->
+<!--                                        url="#{mca.url}" />  -->
+<!--                        </jstl:forEach>-->
+<!--                        -->
+<!--                    </p:submenu>-->
+<!--                    -->
+<!--                    <p:menuitem value="#{msg['menu.cambiarPassword.titulo']}"-->
+<!--                                icon="ui-icon-document"-->
+<!--                                url="/web-pages/general/seguridad/cambioContrasenia.jsf"/>-->
+<!--                    <c:facet name="options">-->
+<!--                        <p:ajaxStatus style="width:64px;height:64px;position:fixed;right:5px;bottom:5px">-->
+<!--                            <c:facet name="start">-->
+<!--                                <p:graphicImage value="/img/wait_progress.gif" height="50px" width="50px" />-->
+<!--                            </c:facet>-->
+<!--                            <c:facet name="complete">-->
+<!--                                <h:outputText value="" />-->
+<!--                            </c:facet>-->
+<!--                            <c:facet name="onerror" ><h:outputText value="Error" /></c:facet>-->
+<!--                            -->
+<!--                        </p:ajaxStatus>-->
+<!--                        -->
+<!--                        <h:outputLink value="#{request.contextPath}/web-pages/general/inicio.jsf" >-->
+<!--                                <p:graphicImage value="/img/home-icon.png" height="20" width="30" title="#{msg['encabezado.inicio']}" />-->
+<!--                        </h:outputLink>-->
+<!--                        <p:commandLink id="lnk_cerrar_sesion" actionListener="#{loginMB.logout}" style="margin-right:20px;" ajax="false">  -->
+<!--        					<p:graphicImage value="/img/logout-icon.png" height="20" width="30" title="#{msg['encabezado.logout']}" />-->
+<!--    					</p:commandLink>-->
+<!--                        -->
+<!--                    </c:facet>-->
+<!--                </p:menubar>-->
+
+                <p:separator style="width:100%;height:0px" />		
+
+            </h:form>
+
+            
+            <div id="contenido" class="contenido">
+                <ui:insert name="contenido">
+                    <ui:include src="/templates/maestro/contenido.xhtml" />
+                </ui:insert>
+            </div>
+        </div>
+    </h:body>
+</html>
