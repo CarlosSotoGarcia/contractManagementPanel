@@ -24,7 +24,7 @@
     </servlet-mapping>
 
     <welcome-file-list>
-        <welcome-file>clients.xhtml</welcome-file>
+        <welcome-file>panel.xhtml</welcome-file>
     </welcome-file-list>
 
 

@@ -24,13 +24,11 @@ public class ClientBacking implements Serializable {
     public void init() {this.clients = clientManager.loadAll();}
 
     public void loadClients() {
-        this.clientManager.loadClient();
         this.clients = clientManager.loadAll();
     }
 
     public void deleteClients() {
         this.clientManager.deleteClients(this.clients);
-        this.clientManager.loadClient();
     }
 
     public List<Client> getClients() {

@@ -10,6 +10,7 @@ public class InfoDTO implements Serializable {
     private String clientBillingPostalCode;
     private String clientBillingState;
     private String clientBillingStreet;
+    private String clientBillingCountry;
     private String clientName;
     private String closeDate;
     private String createdDate;
@@ -17,17 +18,20 @@ public class InfoDTO implements Serializable {
     private String id;
     private Boolean isClosed;
 
-    public InfoDTO(String clientBillingCity, String clientBillingPostalCode, String clientBillingState, String clientBillingStreet, String clientName, String closeDate, String createdDate, String description, String id, Boolean isClosed) {
-        this.clientBillingCity = clientBillingCity;
-        this.clientBillingPostalCode = clientBillingPostalCode;
-        this.clientBillingState = clientBillingState;
-        this.clientBillingStreet = clientBillingStreet;
-        this.clientName = clientName;
-        this.closeDate = closeDate;
-        this.createdDate = createdDate;
-        this.description = description;
-        this.id = id;
-        this.isClosed = isClosed;
+    public InfoApi toInfoApi() {
+        InfoApi infoApi = new InfoApi();
+        infoApi.setClosed(isClosed);
+        infoApi.setCloseDate(closeDate);
+        infoApi.setDescription(description);
+        infoApi.setId(id);
+        infoApi.setClientBillingCountry(clientBillingCountry);
+        infoApi.setClientBillingCity(clientBillingCity);
+        infoApi.setClientBillingPostalCode(clientBillingPostalCode);
+        infoApi.setClientBillingState(clientBillingState);
+        infoApi.setClientBillingStreet(clientBillingStreet);
+        infoApi.setClientName(clientName);
+        infoApi.setExistClient(Boolean.FALSE);
+        return infoApi;
     }
 
     public Project toProject() {
@@ -59,6 +63,7 @@ public class InfoDTO implements Serializable {
                 ", clientBillingPostalCode='" + clientBillingPostalCode + '\'' +
                 ", clientBillingState='" + clientBillingState + '\'' +
                 ", clientBillingStreet='" + clientBillingStreet + '\'' +
+                ", clientBillingCountry='" + clientBillingCountry + '\'' +
                 ", clientName='" + clientName + '\'' +
                 ", closeDate='" + closeDate + '\'' +
                 ", createdDate='" + createdDate + '\'' +
@@ -146,5 +151,13 @@ public class InfoDTO implements Serializable {
 
     public void setClosed(Boolean closed) {
         isClosed = closed;
+    }
+
+    public String getClientBillingCountry() {
+        return clientBillingCountry;
+    }
+
+    public void setClientBillingCountry(String clientBillingCountry) {
+        this.clientBillingCountry = clientBillingCountry;
     }
 }

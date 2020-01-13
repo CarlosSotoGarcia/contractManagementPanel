@@ -14,60 +14,50 @@
         <ui:composition template="/templates/maestro/layout-maestro.xhtml">
             <ui:define name="titulo">Clients</ui:define>
             <ui:define name="contenido">
-                <h:form id="clients">
+                <h:form id="panelForm">
                     <p:growl id="growl" sticky="true" />
                     <p:fieldset>
                         <f:facet name="header">
-                            <p:outputLabel value="Clients"/>
+                            <p:outputLabel value="Panel"/>
                         </f:facet>
 
-                        <p:dataTable id="clientList" var="client" value="#{clientBacking.clients}"
+                        <p:dataTable id="infoList" var="infoApi" value="#{panelBacking.infoApis}"
                                      rows="10"
                                      paginator="true"
                                      paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                      rowsPerPageTemplate="5,10,15">
 
                             <p:column headerText="Id">
-                                <h:outputText value="#{client.id}"/>
+                                <h:outputText value="#{infoApi.id}"/>
+                            </p:column>
+
+                            <p:column headerText="Description">
+                                <h:outputText value="#{infoApi.description}"/>
                             </p:column>
 
                             <p:column headerText="Client Name">
-                                <h:outputText value="#{client.clientName}"/>
+                                <h:outputText value="#{infoApi.clientName}"/>
                             </p:column>
 
-                            <p:column headerText="Client Billing City">
-                                <h:outputText value="#{client.clientBillingCity}"/>
-                            </p:column>
-
-                            <p:column headerText="Client Billing Postal Code">
-                                <h:outputText value="#{client.clientBillingPostalCode}"/>
-                            </p:column>
-
-                            <p:column headerText="Client Billing State">
-                                <h:outputText value="#{client.clientBillingState}"/>
-                            </p:column>
-
-                            <p:column headerText="Client Billing Street">
-                                <h:outputText value="#{client.clientBillingStreet}"/>
+                            <p:column headerText="Client Status">
+                                <h:outputText value="Existing" rendered="#{infoApi.existClient}"/>
+                                <h:outputText value="New" rendered="#{!infoApi.existClient}"/>
                             </p:column>
 
                             <p:column headerText="Actions">
                                 <p:button outcome="project" icon="fa fa-binoculars">
-                                    <f:param name="idItem" value="#{client.id}"/>
+                                    <f:param name="idItem" value="#{infoApi.id}"/>
                                 </p:button>
+                                <p:button id="botonAdd" outcome="clientAdd" icon="fa fa-plus-square" >
+                                    <f:param name="idInfoApi" value="#{infoApi.id}"/>
+                                </p:button>
+                                <p:tooltip id="toolbotonAdd" for="botonAdd" value="Complete Info" position="top"/>
                             </p:column>
 
-
-
                         </p:dataTable>
-
                         <br/>
-                        <p:commandButton style="float: right" id="loadCli" value="Load Clients" tyleClass="ui-priority-primary"
-                                         action="#{clientBacking.loadClients}" icon="ui-icon-disk" update="growl clientList">
-                            <f:ajax execute="@form" render="@form"/>
-                        </p:commandButton>
-                        <p:commandButton style="float: right" id="delete" value="Delete Clients" tyleClass="ui-priority-primary"
-                                         action="#{clientBacking.deleteClients}" icon="ui-icon-trash" update="growl clientList">
+                        <p:commandButton style="float: right" id="loadCli" value="Load Info Api" tyleClass="ui-priority-primary"
+                                         action="#{panelBacking.loadInfoApi}" icon="ui-icon-disk" update="growl">
                             <f:ajax execute="@form" render="@form"/>
                         </p:commandButton>
                     </p:fieldset>

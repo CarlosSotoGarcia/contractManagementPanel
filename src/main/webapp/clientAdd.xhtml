@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </h:head>
+    <h:body>
+        <ui:composition template="/templates/maestro/layout-maestro.xhtml">
+            <ui:define name="titulo">Complete Client</ui:define>
+            <ui:define name="contenido">
+                <h3>Complete Client</h3>
+                <div class="ui-g">
+                    <div class="ui-g-2">
+                    </div>
+                    <div class="ui-g-8">
+                        <h:form id="panelForm">
+                            <h:panelGrid columns="3" cellpadding="5" style="margin: 0 auto;">
+                                <p:outputLabel for="clientId" value="Client ID"/>
+                                <p:inputText id="clientId" value="#{clientAddBacking.client.id}" required="true"/>
+                                <p:message for="clientId"/>
+
+                                <p:outputLabel for="clientName" value="Client Name"/>
+                                <p:inputText id="clientName" value="#{clientAddBacking.client.clientName}" required="true"/>
+                                <p:message for="clientName"/>
+
+                                <p:outputLabel for="clientBillingCity" value="Client Billing City"/>
+                                <p:inputText id="clientBillingCity" value="#{clientAddBacking.client.clientBillingCity}" required="true"/>
+                                <p:message for="clientBillingCity"/>
+
+                                <p:outputLabel for="clientBillingCountry" value="Client Billing Country"/>
+                                <p:inputText id="clientBillingCountry" value="#{clientAddBacking.client.clientBillingCountry}" required="true"/>
+                                <p:message for="clientBillingCountry"/>
+
+                                <p:outputLabel for="clientBillingPostalCode" value="Client Billing Postal Code"/>
+                                <p:inputText id="clientBillingPostalCode" value="#{clientAddBacking.client.clientBillingPostalCode}" required="true"/>
+                                <p:message for="clientBillingPostalCode"/>
+
+                                <p:outputLabel for="clientBillingState" value="Client Billing State"/>
+                                <p:inputText id="clientBillingState" value="#{clientAddBacking.client.clientBillingState}" required="true"/>
+                                <p:message for="clientBillingState"/>
+
+                                <p:outputLabel for="clientBillingStreet" value="Client Billing Street"/>
+                                <p:inputText id="clientBillingStreet" value="#{clientAddBacking.client.clientBillingStreet}" required="true"/>
+                                <p:message for="clientBillingStreet"/>
+
+                                <p:commandButton value="Add New Client" action="#{clientAddBacking.add}">
+                                </p:commandButton>
+
+                            </h:panelGrid>
+                        </h:form>
+                    </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</f:view>
+</html>
